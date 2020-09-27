@@ -45,7 +45,17 @@ RSpec.describe StaffMember, type: :model do
 
   describe "バリデーション" do
     example "@を２個含むemailは無効" do
-      member = build(:staff_member, email: "tst@@example.com")
+      member = build(:staff_member, email: "test@@example.com")
+      expect(member).not_to be_valid
+    end
+
+    example "アルファベット表記のfamily_nameは有効" do
+      member = build(:staff_member, family_name: "Smith")
+      expect(member).to be_valid
+    end
+
+    example "記号を含むfamily_nameは無効" do
+      member = build(:staff_member, family_name: "試験★")
       expect(member).not_to be_valid
     end
 
