@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        invalid:　が無効です。
+        block:　が入力されていません。
